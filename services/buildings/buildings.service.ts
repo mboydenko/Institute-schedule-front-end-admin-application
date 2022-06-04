@@ -11,7 +11,7 @@ import EditBuildingDto from "./dto/edit-building.dto";
 export default class BuildingService {
     private static _instance : BuildingService;
 
-    private baseApiUrl: string = "http://locahost:8000/api/buidlings"
+    private baseApiUrl: string = "http://localhost:8000/api/buildings"
 
     private constructor() {}
 
@@ -31,8 +31,8 @@ export default class BuildingService {
 
     async getOne(id: number) : Promise<Building> {
         
-        let result: ApiBuildingDto = (await axios.get(this.baseApiUrl)).data
-        
+        let result: ApiBuildingDto = (await axios.get(`${this.baseApiUrl}/${id}`)).data
+
         return BuildingMapping.fromApiOne(result)
     }
 
@@ -53,7 +53,7 @@ export default class BuildingService {
             short_name: data.shortName
         }
 
-        let result: ApiBuildingDto = (await axios.put(`this.baseApiUrl/${id}`, apiData)).data
+        let result: ApiBuildingDto = (await axios.put(`${this.baseApiUrl}/${id}`, apiData)).data
 
         return BuildingMapping.fromApiOne(result)
     }

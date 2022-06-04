@@ -8,6 +8,6 @@ interface ApiClassroom {
 export default interface ApiBuildingDto {
     id: number
     name: string
-    shot_name:string
+    short_name:string
     classrooms: ApiClassroom []
 }

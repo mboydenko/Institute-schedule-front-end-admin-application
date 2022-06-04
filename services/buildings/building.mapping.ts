@@ -8,11 +8,11 @@ export default class BuildingMapping {
         return {
             id: data.id,
             name: data.name,
-            shortName: data.shot_name,
+            shortName: data.short_name,
             classrooms: data.classrooms.map(element=>{
                 return {
                     id: element.id,
-                    name: element.name
+                    name: element.name,
                 }
             })
         }
@@ -23,7 +23,7 @@ export default class BuildingMapping {
             return {
                 id: element.id,
                 name: element.name,
-                shortName: element.shot_name
+                shortName: element.short_name
             }
         })
     }
